@@ -13,7 +13,7 @@ h1,h2,h3{
     font-size: 16px;
     border-radius: 10%;
     width: 153px;
-    height: 80px;
+    height: 50px;
     margin: 1%;
     cursor: pointer;
 }
@@ -46,6 +46,9 @@ h1,h2,h3{
 }
 .add_subtotal_cta,.subtotal_cta{
     background-color: #616161; /* Light Green */
+}
+.add_centered_cta,.centered_cta{
+    background-color: #000; /* Light Green */
 }
 .add_line_spacer,.line_spacer{
     background-color: #ff9900;

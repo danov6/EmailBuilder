@@ -7,8 +7,9 @@
 
 <link href="css/index.css" rel="stylesheet">
 <link href="css/template.css" rel="stylesheet">
+<link href="css/codemirror.css" rel="stylesheet" >
+<link href="jquery/jquery-ui.css" rel="stylesheet">
 
-<link rel="stylesheet" href="css/codemirror.css">
 <script src="js/codemirror.js"></script>
 </head>
 <body>
@@ -22,7 +23,7 @@
 	</thead>
 	<tbody>
 		<tr>
-			<td style="vertical-align: top; width: 45%;">
+			<td style="vertical-align: top; width: 45%; text-align: center;">
 				<button class="add_hero controls_button" onclick="addItem('Hero Image');">Hero</button>
 				<button class="add_hello_image controls_button" onclick="addItem('Hello Image');">Hello Copy Image</button>
 				<button class="add_cart_header_image controls_button" onclick="addItem('Cart Header Image');">Cart Header Image</button>
@@ -38,7 +39,6 @@
 				<br><br>
 				<center style="font-size: 18px; font-family: Lato, sans-serif;"><a href="javascript:startover()">Clear</a>&nbsp;&nbsp;&nbsp;<a href="javascript:printHtml()">Print</a></center>
 				<center>
-				<hr>
 					<h3>Layout Tree</h3>
 					<ul id="email_properties" style="padding: 10px;">
 					</ul>
@@ -572,5 +572,7 @@
 	</html>
 </textarea>
 <script src="js/main.js"></script>
+<script src="jquery/external/jquery/jquery.js"></script>
+<script src="jquery/jquery-ui.js"></script>
 </body>
 </html>
