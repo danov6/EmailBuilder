@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Email Test</title>
+<!-- development version, includes helpful console warnings -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<link href="css/index.css" rel="stylesheet">
+<link href="css/template.css" rel="stylesheet">
+
+<link rel="stylesheet" href="css/codemirror.css">
+<script src="js/codemirror.js"></script>
+</head>
+<body>
+<h1 class="title_name"><center>Email Builder</center></h1>
+<table style="width: 100%;">
+	<thead>
+		<tr>
+			<td><h3><center>Controls</center></h3></td>
+			<td><h3><center>Preview</center></h3></td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td style="vertical-align: top; width: 40%;">
+				<button class="add_hero controls_button" onclick="addItem('Hero Image');">Hero</button>
+				<button class="add_hello_image controls_button" onclick="addItem('Hello Image');">Hello Copy Image</button>
+				<button class="add_cart_header_image controls_button" onclick="addItem('Cart Header Image');">Cart Header Image</button>
+				<button class="add_footer controls_button" onclick="addItem('Footer')">Footer</button>
+				<button class="add_spacer controls_button" onclick="addItem('Spacer')">Spacer</button>
+				<button class="add_line_spacer controls_button" onclick="addItem('Line Spacer')">Line Spacer</button>
+				<button class="add_copy_text controls_button" onclick="addItem('Copy Text')">Copy Text</button>
+				<button class="add_subtotal_cta controls_button" onclick="addItem('Subtotal CTA')">Subtotal | CTA</button>
+				<button class="add_social_icons controls_button" onclick="addItem('Social Icons')">Social Icons</button>
+				<button class="add_address controls_button" onclick="addItem('Address')">Address</button>
+				<button class="add_cart_one_product controls_button" onclick="addItem('Cart One Product')">Cart: 1 Product</button>
+				<br><br>
+				<center style="font-size: 18px; font-family: Lato, sans-serif;"><a href="javascript:startover()">Clear</a>&nbsp;&nbsp;&nbsp;<a href="javascript:printHtml()">Print</a></center>
+				<center>
+					<h3>Layout Tree</h3>
+					<ul id="email_properties" style="padding: 10px;">
+					</ul>
+				</center>
+			</td>
+			<td style="border: 1px solid #000;">
+			<center>
+			<table id="html_demo" style="width: 100%; max-width: 600px; text-align: center;">
+			</table>
+			</center>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<textarea id="rendered_html">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+	    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	    <!--[if !mso]><!-->
+	        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	    <!--<![endif]-->
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	    <title></title>
+
+	    <style type="text/css">
+	        /* Basics */
+	        body {
+	            Margin: 0;
+	            padding: 0;
+	            min-width: 100%;
+	            max-width: 600px;
+	        }
+	        table {
+	            border-spacing: 0;
+
+	            font-family: sans-serif;
+	            color: #333333;
+	          }
+	        table table {
+	            table-layout: auto;
+	          }
+
+	        td {
+	            padding: 0;
+	        }
+	        img {
+	            border: 0;
+	        }
+	        .wrapper {
+	            width: 100%;
+	            table-layout: fixed;
+	            -webkit-text-size-adjust: 100%;
+	            -ms-text-size-adjust: 100%;
+	        }
+	        .webkit {
+	            max-width: 600px;
+	        }
+	        .outer {
+	            Margin: 0 auto;
+	            width: 100%;
+	            max-width: 600px;
+	        }
+	        .inner {
+	            padding: 20px;
+	        }
+	        .smaller-inner {
+	            padding: 10px;
+	        }
+	        .contents {
+	            width: 100%;
+	        }
+	        p {
+	            Margin: 0;
+	        }
+	        a {
+	            color: #000;
+	            text-decoration: underline
+	        }
+	        .h1 {
+	            font-size: 21px;
+	            font-weight: bold;
+	            margin-bottom: 18px;
+	        }
+	        .h2 {
+	            font-size: 18px;
+	            font-weight: bold;
+	            margin-bottom: 12px;
+	        }
+	        .full-width-image img {
+	            width: 100%;
+	            max-width: 600px;
+	            height: auto;
+	        }
+
+	        /* One column layout */
+	        .one-column .contents {
+	            text-align: left;
+	        }
+	        .one-column p {
+	            font-size: 14px;
+	            margin-bottom: 10px;
+	            margin-top: 10px;
+	        }
+
+	        /*Two column layout*/
+	        .two-column {
+	            text-align: center;
+	            font-size: 0;
+	            padding-bottom: 5px;
+	        }
+	        .two-column .column {
+	            width: 100%;
+	            max-width: 280px;
+	            display: inline-block;
+	            vertical-align: top;
+	        }
+	        .two-column .contents {
+	            font-size: 14px;
+	            text-align: left;
+	        }
+	        .two-column img {
+	            width: 100%;
+	            max-width: 280px;
+	            height: auto;
+	        }
+	        .two-column .text {
+	            padding-top: 10px;
+	        }
+
+	        /*Three column layout*/
+	        .three-column {
+	            text-align: center;
+	            font-size: 0;
+	            padding-top: 10px;
+	            padding-bottom: 10px;
+	        }
+	        .three-column .column {
+	            width: 100%;
+	            max-width: 200px;
+	            display: inline-block;
+	            vertical-align: top;
+	        }
+	        .three-column img {
+	            width: 100%;
+	            max-width: 180px;
+	            height: auto;
+	        }
+	        .three-column .contents {
+	            font-size: 14px;
+	            text-align: center;
+	        }
+	        .three-column .text {
+	            padding-top: 10px;
+	        }
+
+	        /*Four column layout*/
+	        .four-column {
+	            text-align: center;
+	            font-size: 0;
+	            padding-top: 10px;
+	            padding-bottom: 10px;
+	        }
+	        .four-column .column {
+	            width: 100%;
+	            max-width: 130px;
+	            display: inline-block;
+	            vertical-align: top;
+	        }
+	        .four-column img {
+	            width: 100%;
+	            max-width: 130px;
+	            height: auto;
+	        }
+	        .four-column .contents {
+	            font-size: 14px;
+	            text-align: center;
+	        }
+	        .four-column .text {
+	            padding-top: 10px;
+	        }
+	        .bold-text{
+	            font-weight: bold;
+	        }
+
+	        .display-change{
+	            display: block;
+	        }
+	        .border-image{
+	          border-top: 0px;
+	            border-bottom: 0px;
+	        }
+	    </style>
+
+	    <!--[if (gte mso 9)|(IE)]>
+	    <style type="text/css">
+	        table {border-collapse: collapse;}
+	    </style>
+	    <![endif]-->
+	</head>
+	<body width="600">
+	    <center class="wrapper" width="100%">
+	        <div class="webkit" max-width="600px" border="0" align="center" cellpadding="0" cellspacing="0">
+	            <!--[if (gte mso 9)|(IE)]>
+	            <table width="600" align="center">
+	            <tr>
+	            <td>
+	            <![endif]-->
+	            <table class="outer header" align="center" style="max-width: 600px; background-color: #fff;">
+</textarea>
+<textarea id="hero_image_data" style="display:none">
+    <td class="one-column">
+    <a href="{{LINK1}}" target="_blank" alt="">
+        <table width="100%">
+            <tr>
+                <td class="contents" style="text-align: center;">
+                    <img data-ko-editable="leftImage.src"
+                                                      hspace="0" align="center" border="0" vspace="0" width="600" height="405"
+                                                      src="http://via.placeholder.com/600x405?text=Hero+Image"
+                                                      alt="" style="display: inline-block; border-radius: 0px; width: 100%; height: auto;font-size: 13px;
+                                                      font-family: Arial, Helvetica, sans-serif;" />
+           </td>
+            </tr>
+        </table>
+        </a>
+    </td>
+</textarea>
+<textarea id="cart_header_image_data" style="display:none">
+    <td class="one-column">
+        <table width="100%">
+            <tr>
+                <td class="contents">
+                    <img data-ko-editable="leftImage.src"
+                                                      hspace="0" align="center" border="0" vspace="0" width="600" height="35"
+                                                      src="http://via.placeholder.com/600x35?text=Cart+Header"
+                                                      alt="" style="display: inline-block; border-radius: 0px; width: 600px; height: auto;font-size: 35px;
+                                                      font-family: Arial, Helvetica, sans-serif;" />
+           </td>
+            </tr>
+        </table>
+    </td>
+</textarea>
+<textarea id="spacer_data" style="display: none;">
+    <td class="one-column" bgcolor="#fff" style="background-color: #fff">
+            <table width="100%">
+                <tr>
+                    <td>
+                        <table class="contents"  align="center">
+                            <tr>
+                                <td class="text" align="center" style="text-align: center;">
+                                    <p>&nbsp;</p>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+    </td>
+</textarea>
+<textarea id="copy_text_data" style="display: none;">
+	    <td class="one-column">
+	        <table width="100%">
+	            <tr>
+	                <td class="inner contents" style="padding-top: 15px; padding-bottom: 40px;">
+	                    <p style="font-size: 15px">Plantronics is always on the cutting edge of technology - <a href="{{LINK1}}" target="_blank" alt="" style="text-decoration:none;"><u>click here</u></a> to see for yourself. </p>
+						<br>
+	                    <p style="font-size: 15px">Our company made history when Neil Armstrong walked on the moon and uttered those legendary words through a Plantronics headset. And just like NASA, Plantronics technology is constantly evolving to meet the needs of people everywhere (astronauts included).</p>
+	                  <br>
+	                  <p style="font-size: 15px">We're offering <b>free shipping</b> to help get your hands on the same revolutionary technology Plantronics has to offer.</p>
+	                    <br>
+	                    <p style="font-size: 15px">NASA trusts us... Shouldn't you? <a href="{{LINK1}}" target="_blank" alt="" style="text-decoration:none;"><u>Visit our site</u></a> to complete your order and get <b>Free Shipping</b> today.</p><br>
+	                    <p style="font-size: 15px">Signing Off,</p>
+	                  <p style="font-size: 15px"><b>Team Plantronics</b></p>
+	                </td>
+	            </tr>
+	        </table>
+	    </td>
+</textarea>
+<textarea id="hello_image_data" style="display: none;">
+    <td class="one-column">
+        <table width="100%">
+            <tr>
+                <td class="inner contents" bgcolor="#fff" style="background-color: #fff; padding-bottom: 0px; padding-top: 30px;">
+                    <img data-ko-editable="leftImage.src"
+                                                      hspace="0" align="center" border="0" vspace="0" width="100" height="38"
+                                                      src="http://via.placeholder.com/100x38?text=Hello+Image"
+                                                      alt="" style="display: inline-block; border-radius: 0px; width: 100px; height: 38px;font-size: 13px;
+                                                      font-family: Arial, Helvetica, sans-serif;" />
+           </td>
+            </tr>
+        </table>
+    </td>
+</textarea>
+<textarea id="line_spacer_data" style="display: none;">
+    <td class="one-column">
+        <table width="100%">
+            <tr>
+                <td>
+                    <table class="inner contents"  align="center">
+                        <tr>
+                            <td class="text" align="center" style="text-align: center;">
+                                <hr>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </td>
+</textarea> 
+<textarea id="subtotal_cta_data" style="display: none;">
+    <td class="two-column" align="center">
+        <!--[if (gte mso 9)|(IE)]>
+        <table width="100%">
+        <tr>
+        <td width="50%" valign="top">
+        <![endif]-->
+        <div class="column">
+            <table width="100%">
+                <tr>
+                    <td class="inner">
+                        <table class="contents" align="center">
+                            <tr>
+                              <td style="text-align: center;">
+                                    <p style="font-size: 13px;"><span style="float: left"><b>Subtotal</b></span><span style="float: right; color: #000;"><b>${{usi_subtotal}}</b></span></p>
+<br><br>              
+                                    <p style="font-size: 13px;"><span style="float: left"><b>Discount</b></span><span style="float: right; color: #000;"><b>-${{usi_discount}}</b></span></p>
+<br><br> 
+                                    <p style="font-size: 13px;"><span style="float: left"><b>New Subtotal</b></span><span style="float: right; color: #b03432;"><b>${{usi_newsubtotal}}</b></span></p>
+<br><br>             
+                              </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <!--[if (gte mso 9)|(IE)]>
+        </td><td width="50%" valign="top">
+        <![endif]-->
+        <div class="column">
+            <table width="100%">
+                <tr>
+                    <td style="padding-left:5px">
+                        <table class="contents" align="center">
+
+                            <tr>
+                              <td style="text-align: center;" class="inner">
+                              <br><br>
+                                  <a href="{{LINK1}}" target="_blank" alt=""><img data-ko-editable="leftImage.src"
+                                                    hspace="0" align="center" border="0" vspace="0" width="210" height="36"
+                                                    src="http://via.placeholder.com/210x36?text=CTA"
+                                                    alt="" style="border-radius: 0px; max-width: 210px; width: 210px; height: auto;font-size: 13px;
+                                                    font-family: Arial, Helvetica, sans-serif;" /></a><br>
+                              </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <!--[if (gte mso 9)|(IE)]>
+        </td>
+        </tr>
+        </table>
+        <![endif]-->
+    </td>
+</textarea>
+<textarea id="cart_one_product_data" style="display: none;">
+    <td class="four-column"  align="center">
+        <!--[if (gte mso 9)|(IE)]>
+        <table width="100%">
+        <tr>
+        <td width="120px" valign="top">
+        <![endif]-->
+        <div class="column">
+            <table width="100%">
+                <tr>
+                    <td style="padding: 5px;">
+                        <table class="contents" align="center">
+                            <tr>
+                                <td class="text" align="center">
+									<img data-ko-editable="leftImage.src"
+                                                      hspace="0" align="center" border="0" vspace="0" width="65" height="65" class="mobile-full display-change"
+                                                      src="http://via.placeholder.com/65x65?text=Product+Pic"
+                                                      alt="" style="border-radius: 0px; font-size: 13px; width: 65px; height: 65px;
+                                                      font-family: Arial, Helvetica, sans-serif;" />
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <!--[if (gte mso 9)|(IE)]>
+        </td><td width="120px" valign="top">
+        <![endif]-->
+        <div class="column" style="max-width: 240px;">
+            <table width="100%">
+                <tr>
+                    <td style="padding: 5px;">
+                        <table class="contents" align="center">
+                            <tr>
+                                <td class="text" style="text-align: center; vertical-align: center; font-size: 13px;">
+                                    <p><a href="https://trackr.sjv.io/c/16669/457936/8165?u={{usi_prod_link_3}}" target="_blank" alt="" style="text-decoration:none;"><u><b>{{usi_prod_name_1}}</b></u></a></p>
+
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <!--[if (gte mso 9)|(IE)]>
+        </td><td width="120px" valign="top">
+        <![endif]-->
+        <div class="column" style="max-width: 50px;">
+            <table width="100%">
+                <tr>
+                    <td style="padding: 5px;">
+                        <table class="contents" align="center">
+                            <tr>
+                                <td class="text" style="text-align: center; vertical-align: center; font-size: 14px;">
+                                    <p class="bold-text">&nbsp;</p>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <!--[if (gte mso 9)|(IE)]>
+        </td><td width="120px" valign="top">
+        <![endif]-->
+        <div class="column">
+            <table width="100%">
+                <tr>
+                    <td style="padding: 5px;">
+                        <table class="contents" align="center">
+                            <tr>
+                                <td class="text" style="text-align: center; vertical-align: center; font-size: 13px;">
+                                    <p class="bold-text" style="float: right;">${{usi_prod_price_1}}&nbsp;&nbsp;</p>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <!--[if (gte mso 9)|(IE)]>
+        </td>
+        </tr>
+        </table>
+        <![endif]-->
+    </td>
+</textarea>
+<textarea id="social_icons_data" style="display: none;">
+        <td class="one-column" align="center" bgcolor="#c3c7ca" style="background-color: #c3c7ca">
+                <table width="100%">
+                    <tr>
+                        <td class="small-inner" style="text-align: center;">
+                            <table align="center" style="display: inline-block;">
+                                <tr>
+                                    <td style="padding: 5px;">
+                                        <a href="http://www.facebook.com/Plantronics" target="_blank" alt=""><img width="35" src="https://www.upsellit.com/images/hound/5424/plantronics-email-social-FB1.png" alt=""/></a>
+                                    </td>
+                                    <td style="padding: 5px;">
+                                        <a href="http://www.twitter.com/Plantronics" target="_blank" alt=""><img width="35" src="https://www.upsellit.com/images/hound/5424/plantronics-email-social-TW2.png" alt=""/></a>
+                                    </td>
+                                    <td style="padding: 5px;">
+                                        <a href="http://www.youtube.com/PlantronicsTV" target="_blank" alt=""><img width="35" src="https://www.upsellit.com/images/hound/5424/plantronics-email-social-YT3.png" alt=""/></a>
+                                    </td>
+
+                                    <td style="padding: 5px;">
+                                        <a href="http://www.instagram.com/plantronics" target="_blank" alt=""><img width="35" src="https://www.upsellit.com/images/hound/5424/plantronics-email-social-IG4.png" alt=""/></a>
+                                    </td>
+                                    <td style="padding: 5px;">
+                                        <a href="http://www.linkedin.com/company/plantronics" target="_blank" alt=""><img width="35" src="https://www.upsellit.com/images/hound/5424/plantronics-email-social-IN5.png" alt=""/></a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+
+        </td>
+</textarea>
+<textarea id="address_data" style="display: none;">
+        <td class="one-column" align="center" bgcolor="#c3c7ca" style="background-color: #c3c7ca">
+                <table width="100%">
+                    <tr>
+                        <td class="inner" style="text-align: center;">
+                            <table align="center" style="display: inline-block;">
+                                <tr>
+                                    <td style="padding: 2px;  text-align: center;"><p style="font-size: 12px; color: #000;">© 2018 Plantronics. All Rights Reserved. </p>
+                                    <p style="font-size: 12px; color: #000;">345 Encinal Street Santa Cruz, California 95060</p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+
+        </td>
+</textarea>	
+<textarea id="closer_data" style="display:none">
+					</table>
+		            <!--[if (gte mso 9)|(IE)]>
+		            </td>
+		            </tr>
+		            </table>
+		            <![endif]-->
+		        </div>
+		    </center>
+		</body>
+	</html>
+</textarea>
+<script src="js/main.js"></script>
+</body>
+</html>
