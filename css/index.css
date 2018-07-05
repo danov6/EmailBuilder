@@ -1,19 +1,55 @@
 h1,h2,h3{
     font-family: Lato, sans-serif;
 }
+body{
+    font-family: "Trebuchet MS", sans-serif;
+    margin: 50px;
+}
+.demoHeaders {
+    margin-top: 2em;
+}
+#dialog-link {
+    padding: .4em 1em .4em 20px;
+    text-decoration: none;
+    position: relative;
+}
+#dialog-link span.ui-icon {
+    margin: 0 5px 0 0;
+    position: absolute;
+    left: .2em;
+    top: 50%;
+    margin-top: -8px;
+}
+#icons {
+    margin: 0;
+    padding: 0;
+}
+#icons li {
+    margin: 2px;
+    position: relative;
+    padding: 4px 0;
+    cursor: pointer;
+    float: left;
+    list-style: none;
+}
+#icons span.ui-icon {
+    float: left;
+    margin: 0 4px;
+}
+.fakewindowcontain .ui-widget-overlay {
+    position: absolute;
+}
+select {
+    width: 200px;
+}
 .title_name{
     font-family: Lato, sans-serif;
 }
 .controls_button{
-    border: none;
-    color: white;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
-    border-radius: 10%;
-    width: 153px;
-    height: 50px;
+    font-size: 14px;
     margin: 1%;
     cursor: pointer;
 }
@@ -71,7 +107,8 @@ h1,h2,h3{
 .hello_image,
 .cart_header_image,
 .subtotal_cta,
-.line_spacer{
+.line_spacer,
+.centered_cta{
     border: none;
     color: white;
     padding: 15px 32px;
@@ -82,10 +119,10 @@ h1,h2,h3{
 }
 .delete_button{
     float: right;
-    color: #fff;
-    background-color: #000;
+    background-color: #fff;
     border: none;
     cursor: pointer;
+    border-radius: 10%;
 }
 
 #rendered_html{

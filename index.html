@@ -17,28 +17,46 @@
 <table style="width: 100%;">
 	<thead>
 		<tr>
-			<td><h3><center>Controls</center></h3></td>
-			<td><h3><center>Preview</center></h3></td>
+			<td><h3 class="demoHeaders"><center>Controls</center></h3></td>
+			<td><h3 class="demoHeaders"><center>Preview</center></h3></td>
 		</tr>
 	</thead>
 	<tbody>
 		<tr>
 			<td style="vertical-align: top; width: 45%; text-align: center;">
-				<button class="add_hero controls_button" onclick="addItem('Hero Image');">Hero</button>
-				<button class="add_hello_image controls_button" onclick="addItem('Hello Image');">Hello Copy Image</button>
-				<button class="add_cart_header_image controls_button" onclick="addItem('Cart Header Image');">Cart Header Image</button>
+				<div id="accordion">
+					<h3>Image Layouts</h3>
+					<div>
+						<button class="ui-button ui-corner-all ui-widget controls_button" onclick="addItem('Hero Image');">Hero Image 
+						<span class="ui-icon ui-icon-image"></span></button>
+					</div>
+					<h3>Copy Layouts</h3>
+					<div>
+						<button class="ui-button ui-corner-all ui-widget controls_button" onclick="addItem('Hello Image');">"Hello" Copy Image <span class="ui-icon ui-icon-image"></span> 
+						</button>
+						<button class="ui-button ui-corner-all ui-widget controls_button" onclick="addItem('Copy Text')">Copy Text </button>
+						<button class="ui-button ui-corner-all ui-widget controls_button" onclick="addItem('Subtotal CTA')">Subtotal | CTA</button>
+						<button class="ui-button ui-corner-all ui-widget controls_button" onclick="addItem('Centered CTA')">Centered CTA</button>
+					</div>
+					<h3>Cart Layouts</h3>
+					<div>
+						<button class="ui-button ui-corner-all ui-widget controls_button" onclick="addItem('Cart Header Image');">Cart Header Image <span class="ui-icon ui-icon-image"></span>
+						</button>
+						<button class="ui-button ui-corner-all ui-widget controls_button" onclick="addItem('Cart One Product')">Cart: 1 Product <span class="ui-icon ui-icon-cart"></span></button>
+					</div>
+					<h3>Footer Layouts</h3>
+					<div>
+						<button class="ui-button ui-corner-all ui-widget controls_button" onclick="addItem('Social Icons')">Social Icons</button>
+						<button class="ui-button ui-corner-all ui-widget controls_button" onclick="addItem('Address')">Address</button>
+					</div>
+				</div>
 				<button class="add_footer controls_button" onclick="addItem('Footer')">Footer</button>
 				<button class="add_spacer controls_button" onclick="addItem('Spacer')">Spacer</button>
 				<button class="add_line_spacer controls_button" onclick="addItem('Line Spacer')">Line Spacer</button>
-				<button class="add_copy_text controls_button" onclick="addItem('Copy Text')">Copy Text</button>
-				<button class="add_subtotal_cta controls_button" onclick="addItem('Subtotal CTA')">Subtotal | CTA</button>
-				<button class="add_centered_cta controls_button" onclick="addItem('Centered CTA')">Centered CTA</button>
-				<button class="add_social_icons controls_button" onclick="addItem('Social Icons')">Social Icons</button>
-				<button class="add_address controls_button" onclick="addItem('Address')">Address</button>
-				<button class="add_cart_one_product controls_button" onclick="addItem('Cart One Product')">Cart: 1 Product</button>
 				<br><br>
-				<center style="font-size: 18px; font-family: Lato, sans-serif;"><a href="javascript:startover()">Clear</a>&nbsp;&nbsp;&nbsp;<a href="javascript:printHtml()">Print</a></center>
-				<center>
+				<center style="font-size: 18px; font-family: Lato, sans-serif;">
+					<button class="controls_button" onclick="startover()">Clear <span class="ui-icon ui-icon-trash"></span></button>
+					<button class="controls_button" onclick="printHtml()">Print <span class="ui-icon ui-icon-print"></span></button>
 					<h3>Layout Tree</h3>
 					<ul id="email_properties" style="padding: 10px;">
 					</ul>
@@ -302,6 +320,9 @@
 	        <table width="100%">
 	            <tr>
 	                <td class="inner contents" style="padding-top: 15px; padding-bottom: 40px;">
+	                	<br>
+                        <p style="font-size: 15px">Hi there,</p>
+                        <br>
 	                    <p style="font-size: 15px">Plantronics is always on the cutting edge of technology - <a href="{{LINK1}}" target="_blank" alt="" style="text-decoration:none;"><u>click here</u></a> to see for yourself. </p>
 						<br>
 	                    <p style="font-size: 15px">Our company made history when Neil Armstrong walked on the moon and uttered those legendary words through a Plantronics headset. And just like NASA, Plantronics technology is constantly evolving to meet the needs of people everywhere (astronauts included).</p>
@@ -514,7 +535,7 @@
         <td class="one-column" align="center" bgcolor="#c3c7ca" style="background-color: #c3c7ca">
                 <table width="100%">
                     <tr>
-                        <td class="small-inner" style="text-align: center;">
+                        <td class="smaller-inner" style="text-align: center;">
                             <table align="center" style="display: inline-block;">
                                 <tr>
                                     <td style="padding: 5px;">
@@ -574,5 +595,8 @@
 <script src="js/main.js"></script>
 <script src="jquery/external/jquery/jquery.js"></script>
 <script src="jquery/jquery-ui.js"></script>
+<script>
+	$( "#accordion" ).accordion();
+</script>
 </body>
 </html>

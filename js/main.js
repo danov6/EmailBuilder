@@ -51,7 +51,8 @@ function toSnakeCase(email_property){
 }
 function createDeleteButton (counter){
 	var delete_node = document.createElement("button");
-	var delete_text_node = document.createTextNode("X");
+	var delete_text_node = document.createElement("span");
+	delete_text_node.className = "ui-icon ui-icon-trash";
 	delete_node.appendChild(delete_text_node);
 	delete_node.className = "delete_button"
 	delete_node.addEventListener("click", function(){
