@@ -48,11 +48,12 @@
 					<div>
 						<button class="ui-button ui-corner-all ui-widget controls_button" onclick="addItem('Social Icons')">Social Icons</button>
 						<button class="ui-button ui-corner-all ui-widget controls_button" onclick="addItem('Address')">Address</button>
+						<button class="ui-button ui-corner-all ui-widget controls_button" onclick="addItem('Footer Image')">Footer Image</button>
 					</div>
 				</div>
 				<button class="add_footer controls_button" onclick="addItem('Footer')">Footer</button>
-				<button class="add_spacer controls_button" onclick="addItem('Spacer')">Spacer</button>
-				<button class="add_line_spacer controls_button" onclick="addItem('Line Spacer')">Line Spacer</button>
+				<button class="ui-button ui-corner-all ui-widget controls_button" onclick="addItem('Spacer')">Spacer</button>
+				<button class="ui-button ui-corner-all ui-widget controls_button" onclick="addItem('Line Spacer')">Line Spacer</button>
 				<br><br>
 				<center style="font-size: 18px; font-family: Lato, sans-serif;">
 					<button class="controls_button" onclick="startover()">Clear <span class="ui-icon ui-icon-trash"></span></button>
@@ -71,6 +72,19 @@
 		</tr>
 	</tbody>
 </table>
+						<div style="display: none;">
+						<h3>Test</h3>
+						<div class="container grid">
+							<form>
+								<h2>HTML</h2>
+								<textarea id="html"></textarea>
+								<textarea id="css" style="display: none;"></textarea>
+							</form>
+						</div>
+						<div class="output grid">
+							<iframe></iframe>
+						</div>
+						</div>
 <textarea id="rendered_html">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
@@ -300,19 +314,34 @@
 </textarea>
 <textarea id="spacer_data" style="display: none;">
     <td class="one-column" bgcolor="#fff" style="background-color: #fff">
-            <table width="100%">
-                <tr>
-                    <td>
-                        <table class="contents"  align="center">
-                            <tr>
-                                <td class="text" align="center" style="text-align: center;">
-                                    <p>&nbsp;</p>
-                                </td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-            </table>
+        <table width="100%">
+            <tr>
+                <td>
+                    <table class="contents"  align="center">
+                        <tr>
+                            <td class="text" align="center" style="text-align: center;">
+                                <p>&nbsp;</p>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </td>
+</textarea>
+<textarea id="footer_image_data" style="display: none;">
+    <td class="one-column">
+        <table width="100%">
+            <tr>
+                <td class="inner contents" bgcolor="#c3c7ca" style="background-color: #c3c7ca; text-align: center;">
+                    <img data-ko-editable="leftImage.src"
+                                                      hspace="0" align="center" border="0" vspace="0" width="250" height="43"
+                                                      src="http://via.placeholder.com/250x43?text=Footer+Image"
+                                                      alt="" style="display: inline-block; border-radius: 0px; width: 250px; height: 43px;font-size: 13px;
+                                                      font-family: Arial, Helvetica, sans-serif;" />
+           		</td>
+            </tr>
+        </table>
     </td>
 </textarea>
 <textarea id="copy_text_data" style="display: none;">
@@ -595,8 +624,33 @@
 <script src="js/main.js"></script>
 <script src="jquery/external/jquery/jquery.js"></script>
 <script src="jquery/jquery-ui.js"></script>
-<script>
+<script type="text/javascript">
 	$( "#accordion" ).accordion();
+</script>
+<script src="jquery/jquery-3.3.1.min.js"></script>
+<script>
+	(function() {
+		$('.grid').height( $(window).height() );
+
+		var frame = $('iframe'),
+			contents = frame.contents(),
+			body = contents.find('body'),
+			styleTag = contents.find('head').append('<style></style>').children('style');
+
+			$('textarea').focus(function() {
+				var $this = $(this);
+
+				$this.keyup(function(){
+					if($this.attr('id') === 'html'){
+						body.html($this.val());
+					} else{
+						styleTag.text($this.val());
+					}
+				});
+			});
+
+
+	})();
 </script>
 </body>
 </html>

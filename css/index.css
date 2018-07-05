@@ -53,40 +53,43 @@ select {
     margin: 1%;
     cursor: pointer;
 }
-.add_hero,.hero_image {
+.hero_image {
     background-color: #4CAF50; /* Green */
 }
-.add_footer,.footer {
+.footer {
     background-color: #0b89e6; /* Blue */
 }
-.add_spacer,.spacer{
+.spacer{
     background-color: #ffbf00; /* Yellow */
 }
-.add_copy_text,.copy_text{
+.copy_text{
     background-color: #afafaf; /* Gray */
 }
-.add_social_icons,.social_icons{
+.social_icons{
     background-color: #ad04cc; /* Purple */
 }
-.add_address,.address{
+.address{
     background-color: #d77ce8; /* Light Purple */
 }
-.add_cart_one_product,.cart_one_product{
+.footer_image{
+    background-color: #d77ce8; /* Light Purple */
+}
+.cart_one_product{
     background-color: #a20a3e; /* Dark Red */
 }
-.add_hello_image,.hello_image{
+.hello_image{
     background-color: #005604; /* Dark Green */
 }
-.add_cart_header_image,.cart_header_image{
+.cart_header_image{
     background-color: #68f56f; /* Light Green */
 }
-.add_subtotal_cta,.subtotal_cta{
+.subtotal_cta{
     background-color: #616161; /* Light Green */
 }
-.add_centered_cta,.centered_cta{
+.centered_cta{
     background-color: #000; /* Light Green */
 }
-.add_line_spacer,.line_spacer{
+.line_spacer{
     background-color: #ff9900;
 }
 .clear_all{
@@ -108,7 +111,8 @@ select {
 .cart_header_image,
 .subtotal_cta,
 .line_spacer,
-.centered_cta{
+.centered_cta,
+.footer_image{
     border: none;
     color: white;
     padding: 15px 32px;
