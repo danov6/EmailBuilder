@@ -1,8 +1,13 @@
+//used for testing purposes
 var counter = 0;
+
+//when hitting clear, rendered html becomes this
 var saved_html = document.getElementById("rendered_html").value;
 
-// for rendering final draft
+// element that contains the preview html
 var html_demo = document.getElementById("html_demo");
+
+//footer html to close off content
 var closer_data = document.getElementById("closer_data");
 
 var rendered_html = document.getElementById("rendered_html");
@@ -26,6 +31,22 @@ function addItem (email_property){
 	//wrapper.appendChild(wrapper.innerHTML);
 	wrapper.className = "emailnode_" + counter.toString();                             
 	html_demo.appendChild(wrapper);
+
+	// adds items to the layout tree
+	createLayoutTreeItem(email_property);
+}
+function addThreeProductCart (email_property){
+
+	//counter is for testing purposes
+	var prop = toSnakeCase(email_property);
+	var text_area_data = document.getElementById(prop + "_data").value;
+	//var wrapper = document.createElement("tr"); 
+
+	counter++;
+	//wrapper.innerHTML = text_area_data;    
+	//wrapper.appendChild(wrapper.innerHTML);
+	//wrapper.className = "emailnode_" + counter.toString();                             
+	html_demo.appendChild(text_area_data);
 
 	// adds items to the layout tree
 	createLayoutTreeItem(email_property);

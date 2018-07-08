@@ -77,6 +77,9 @@ select {
 .cart_one_product{
     background-color: #a20a3e; /* Dark Red */
 }
+.cart_three_product{
+    background-color: #a20a3e; /* Dark Red */
+}
 .hello_image{
     background-color: #005604; /* Dark Green */
 }
@@ -112,7 +115,8 @@ select {
 .subtotal_cta,
 .line_spacer,
 .centered_cta,
-.footer_image{
+.footer_image,
+.cart_three_product{
     border: none;
     color: white;
     padding: 15px 32px;

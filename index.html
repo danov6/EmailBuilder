@@ -9,8 +9,6 @@
 <link href="css/template.css" rel="stylesheet">
 <link href="css/codemirror.css" rel="stylesheet" >
 <link href="jquery/jquery-ui.css" rel="stylesheet">
-
-<script src="js/codemirror.js"></script>
 </head>
 <body>
 <h1 class="title_name"><center>Email Builder</center></h1>
@@ -43,6 +41,7 @@
 						<button class="ui-button ui-corner-all ui-widget controls_button" onclick="addItem('Cart Header Image');">Cart Header Image <span class="ui-icon ui-icon-image"></span>
 						</button>
 						<button class="ui-button ui-corner-all ui-widget controls_button" onclick="addItem('Cart One Product')">Cart: 1 Product <span class="ui-icon ui-icon-cart"></span></button>
+						<button class="ui-button ui-corner-all ui-widget controls_button" onclick="addThreeProductCart('Cart Three Product Demo')">Cart: 3 Product <span class="ui-icon ui-icon-cart"></span></button>
 					</div>
 					<h3>Footer Layouts</h3>
 					<div>
@@ -51,7 +50,6 @@
 						<button class="ui-button ui-corner-all ui-widget controls_button" onclick="addItem('Footer Image')">Footer Image</button>
 					</div>
 				</div>
-				<button class="add_footer controls_button" onclick="addItem('Footer')">Footer</button>
 				<button class="ui-button ui-corner-all ui-widget controls_button" onclick="addItem('Spacer')">Spacer</button>
 				<button class="ui-button ui-corner-all ui-widget controls_button" onclick="addItem('Line Spacer')">Line Spacer</button>
 				<br><br>
@@ -72,19 +70,19 @@
 		</tr>
 	</tbody>
 </table>
-						<div style="display: none;">
-						<h3>Test</h3>
-						<div class="container grid">
-							<form>
-								<h2>HTML</h2>
-								<textarea id="html"></textarea>
-								<textarea id="css" style="display: none;"></textarea>
-							</form>
-						</div>
-						<div class="output grid">
-							<iframe></iframe>
-						</div>
-						</div>
+<div>
+<h3>Test</h3>
+<div class="container grid">
+	<form>
+		<h2>HTML</h2>
+		<textarea id="html"></textarea>
+		<textarea id="css" style="display: none;"></textarea>
+	</form>
+</div>
+<div class="output grid">
+	<iframe width="800" style="width: 800px; height: 1000px;"></iframe>
+</div>
+</div>
 <textarea id="rendered_html">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
@@ -472,6 +470,535 @@
         </table>
     </td>
 </textarea>
+<textarea id="cart_three_product_demo_data" style="display: none">
+    <td class="four-column"  align="center">
+        <!--[if (gte mso 9)|(IE)]>
+        <table width="100%">
+        <tr>
+        <td width="120px" valign="top">
+        <![endif]-->
+        <div class="column">
+            <table width="100%">
+                <tr>
+                    <td style="padding: 5px;">
+                        <table class="contents" align="center">
+                            <tr>
+                                <td class="text" align="center">
+									<img data-ko-editable="leftImage.src"
+                                                      hspace="0" align="center" border="0" vspace="0" width="65" height="65" class="mobile-full display-change"
+                                                      src="{{usi_prod_pic_1}}"
+                                                      alt="" style="border-radius: 0px; font-size: 13px; width: 65px; height: 65px;
+                                                      font-family: Arial, Helvetica, sans-serif;" />
+
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <!--[if (gte mso 9)|(IE)]>
+        </td><td width="120px" valign="top">
+        <![endif]-->
+        <div class="column" style="max-width: 240px;">
+            <table width="100%">
+                <tr>
+                    <td style="padding: 5px;">
+                        <table class="contents" align="center">
+                            <tr>
+                                <td class="text" style="text-align: center; vertical-align: center; font-size: 13px;">
+                                    <p><b>{{usi_prod_name_1}}</b></p>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <!--[if (gte mso 9)|(IE)]>
+        </td><td width="120px" valign="top">
+        <![endif]-->
+        <div class="column" style="max-width: 50px;">
+            <table width="100%">
+                <tr>
+                    <td style="padding: 5px;">
+                        <table class="contents" align="center">
+                            <tr>
+                                <td class="text" style="text-align: center; vertical-align: center; font-size: 14px;">
+                                    <p class="bold-text">&nbsp;</p>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <!--[if (gte mso 9)|(IE)]>
+        </td><td width="120px" valign="top">
+        <![endif]-->
+        <div class="column">
+            <table width="100%">
+                <tr>
+                    <td style="padding: 5px;">
+                        <table class="contents" align="center">
+                            <tr>
+                                <td class="text" style="text-align: center; vertical-align: center; font-size: 13px;">
+                                    <p class="bold-text" style="float: right;">${{usi_prod_price_1}}</p>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <!--[if (gte mso 9)|(IE)]>
+        </td>
+        </tr>
+        </table>
+        <![endif]-->
+    </td>
+</tr>
+<tr>
+    <td class="four-column"  align="center">
+        <!--[if (gte mso 9)|(IE)]>
+        <table width="100%">
+        <tr>
+        <td width="120px" valign="top">
+        <![endif]-->
+        <div class="column">
+            <table width="100%">
+                <tr>
+                    <td style="padding: 5px;">
+                        <table class="contents" align="center">
+                            <tr>
+                                <td class="text" align="center">
+                                    <img data-ko-editable="leftImage.src"
+                                                      hspace="0" align="center" border="0" vspace="0" width="65" height="65" class="mobile-full display-change"
+                                                      src="{{usi_prod_pic_2}}"
+                                                      alt="" style="border-radius: 0px; font-size: 13px; width: 65px; height: 65px;
+                                                      font-family: Arial, Helvetica, sans-serif;" />
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <!--[if (gte mso 9)|(IE)]>
+        </td><td width="120px" valign="top">
+        <![endif]-->
+        <div class="column" style="max-width: 240px;">
+            <table width="100%">
+                <tr>
+                    <td style="padding: 5px;">
+                        <table class="contents" align="center">
+                            <tr>
+                                <td class="text" style="text-align: center; vertical-align: center; font-size: 13px;">
+                                    <p><b>{{usi_prod_name_2}}</b></p>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <!--[if (gte mso 9)|(IE)]>
+        </td><td width="120px" valign="top">
+        <![endif]-->
+        <div class="column" style="max-width: 50px;">
+            <table width="100%">
+                <tr>
+                    <td style="padding: 5px;">
+                        <table class="contents" align="center">
+                            <tr>
+                                <td class="text" style="text-align: center; vertical-align: center; font-size: 14px;">
+                                    <p class="bold-text">&nbsp;</p>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <!--[if (gte mso 9)|(IE)]>
+        </td><td width="120px" valign="top">
+        <![endif]-->
+        <div class="column">
+            <table width="100%">
+                <tr>
+                    <td style="padding: 5px;">
+                        <table class="contents" align="center">
+                            <tr>
+                                <td class="text" style="text-align: center; vertical-align: center; font-size: 13px;">
+                                    <p class="bold-text" style="float: right;">${{usi_prod_price_2}}</p>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <!--[if (gte mso 9)|(IE)]>
+        </td>
+        </tr>
+        </table>
+        <![endif]-->
+    </td>
+</tr>
+<tr>
+    <td class="four-column"  align="center">
+        <!--[if (gte mso 9)|(IE)]>
+        <table width="100%">
+        <tr>
+        <td width="120px" valign="top">
+        <![endif]-->
+        <div class="column">
+            <table width="100%">
+                <tr>
+                    <td style="padding: 5px;">
+                        <table class="contents" align="center">
+                            <tr>
+                                <td class="text" align="center">
+                                    <img data-ko-editable="leftImage.src"
+                                                      hspace="0" align="center" border="0" vspace="0" width="65" height="65" class="mobile-full display-change"
+                                                      src="{{usi_prod_pic_3}}"
+                                                      alt="" style="border-radius: 0px; font-size: 13px; width: 65px; height: 65px;
+                                                      font-family: Arial, Helvetica, sans-serif;" />
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <!--[if (gte mso 9)|(IE)]>
+        </td><td width="120px" valign="top">
+        <![endif]-->
+        <div class="column" style="max-width: 240px;">
+            <table width="100%">
+                <tr>
+                    <td style="padding: 5px;">
+                        <table class="contents" align="center">
+                            <tr>
+                                <td class="text" style="text-align: center; vertical-align: center; font-size: 13px;">
+                                    <p><b>{{usi_prod_name_3}}</b></p>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <!--[if (gte mso 9)|(IE)]>
+        </td><td width="120px" valign="top">
+        <![endif]-->
+        <div class="column" style="max-width: 50px;">
+            <table width="100%">
+                <tr>
+                    <td style="padding: 5px;">
+                        <table class="contents" align="center">
+                            <tr>
+                                <td class="text" style="text-align: center; vertical-align: center; font-size: 14px;">
+                                    <p class="bold-text">&nbsp;</p>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <!--[if (gte mso 9)|(IE)]>
+        </td><td width="120px" valign="top">
+        <![endif]-->
+        <div class="column">
+            <table width="100%">
+                <tr>
+                    <td style="padding: 5px;">
+                        <table class="contents" align="center">
+                            <tr>
+                                <td class="text" style="text-align: center; vertical-align: center; font-size: 13px;">
+                                    <p class="bold-text" style="float: right;">${{usi_prod_price_3}}</p>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <!--[if (gte mso 9)|(IE)]>
+        </td>
+        </tr>
+        </table>
+        <![endif]-->
+    </td>
+</textarea>
+<div id="cart_three_product_data" style="display: none">
+<tr>
+    <td class="four-column"  align="center">
+        <!--[if (gte mso 9)|(IE)]>
+        <table width="100%">
+        <tr>
+        <td width="120px" valign="top">
+        <![endif]-->
+        <div class="column">
+            <table width="100%">
+                <tr>
+                    <td style="padding: 5px;">
+                        <table class="contents" align="center">
+                            <tr>
+                                <td class="text" align="center">
+                                    <img data-ko-editable="leftImage.src"
+                                                      hspace="0" align="center" border="0" vspace="0" width="65" height="65" class="mobile-full display-change"
+                                                      src="{{usi_prod_pic_1}}"
+                                                      alt="" style="border-radius: 0px; font-size: 13px; width: 65px; height: 65px;
+                                                      font-family: Arial, Helvetica, sans-serif;" />
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <!--[if (gte mso 9)|(IE)]>
+        </td><td width="120px" valign="top">
+        <![endif]-->
+        <div class="column" style="max-width: 240px;">
+            <table width="100%">
+                <tr>
+                    <td style="padding: 5px;">
+                        <table class="contents" align="center">
+                            <tr>
+                                <td class="text" style="text-align: center; vertical-align: center; font-size: 13px;">
+                                    <p><b>{{usi_prod_name_1}}</b></p>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <!--[if (gte mso 9)|(IE)]>
+        </td><td width="120px" valign="top">
+        <![endif]-->
+        <div class="column" style="max-width: 50px;">
+            <table width="100%">
+                <tr>
+                    <td style="padding: 5px;">
+                        <table class="contents" align="center">
+                            <tr>
+                                <td class="text" style="text-align: center; vertical-align: center; font-size: 14px;">
+                                    <p class="bold-text">&nbsp;</p>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <!--[if (gte mso 9)|(IE)]>
+        </td><td width="120px" valign="top">
+        <![endif]-->
+        <div class="column">
+            <table width="100%">
+                <tr>
+                    <td style="padding: 5px;">
+                        <table class="contents" align="center">
+                            <tr>
+                                <td class="text" style="text-align: center; vertical-align: center; font-size: 13px;">
+                                    <p class="bold-text" style="float: right;">${{usi_prod_price_1}}</p>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <!--[if (gte mso 9)|(IE)]>
+        </td>
+        </tr>
+        </table>
+        <![endif]-->
+    </td>
+</tr>
+{{REQUIRE_START:usi_prod_name_2}}
+<tr>
+    <td class="four-column"  align="center">
+        <!--[if (gte mso 9)|(IE)]>
+        <table width="100%">
+        <tr>
+        <td width="120px" valign="top">
+        <![endif]-->
+        <div class="column">
+            <table width="100%">
+                <tr>
+                    <td style="padding: 5px;">
+                        <table class="contents" align="center">
+                            <tr>
+                                <td class="text" align="center">
+                                    <img data-ko-editable="leftImage.src"
+                                                      hspace="0" align="center" border="0" vspace="0" width="65" height="65" class="mobile-full display-change"
+                                                      src="{{usi_prod_pic_2}}"
+                                                      alt="" style="border-radius: 0px; font-size: 13px; width: 65px; height: 65px;
+                                                      font-family: Arial, Helvetica, sans-serif;" />
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <!--[if (gte mso 9)|(IE)]>
+        </td><td width="120px" valign="top">
+        <![endif]-->
+        <div class="column" style="max-width: 240px;">
+            <table width="100%">
+                <tr>
+                    <td style="padding: 5px;">
+                        <table class="contents" align="center">
+                            <tr>
+                                <td class="text" style="text-align: center; vertical-align: center; font-size: 13px;">
+                                    <p><b>{{usi_prod_name_2}}</b></p>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <!--[if (gte mso 9)|(IE)]>
+        </td><td width="120px" valign="top">
+        <![endif]-->
+        <div class="column" style="max-width: 50px;">
+            <table width="100%">
+                <tr>
+                    <td style="padding: 5px;">
+                        <table class="contents" align="center">
+                            <tr>
+                                <td class="text" style="text-align: center; vertical-align: center; font-size: 14px;">
+                                    <p class="bold-text">&nbsp;</p>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <!--[if (gte mso 9)|(IE)]>
+        </td><td width="120px" valign="top">
+        <![endif]-->
+        <div class="column">
+            <table width="100%">
+                <tr>
+                    <td style="padding: 5px;">
+                        <table class="contents" align="center">
+                            <tr>
+                                <td class="text" style="text-align: center; vertical-align: center; font-size: 13px;">
+                                    <p class="bold-text" style="float: right;">${{usi_prod_price_2}}</p>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <!--[if (gte mso 9)|(IE)]>
+        </td>
+        </tr>
+        </table>
+        <![endif]-->
+    </td>
+</tr>
+{{REQUIRE_STOP:usi_prod_name_2}}
+{{REQUIRE_START:usi_prod_name_3}}
+<tr>
+    <td class="four-column"  align="center">
+        <!--[if (gte mso 9)|(IE)]>
+        <table width="100%">
+        <tr>
+        <td width="120px" valign="top">
+        <![endif]-->
+        <div class="column">
+            <table width="100%">
+                <tr>
+                    <td style="padding: 5px;">
+                        <table class="contents" align="center">
+                            <tr>
+                                <td class="text" align="center">
+                                    <img data-ko-editable="leftImage.src"
+                                                      hspace="0" align="center" border="0" vspace="0" width="65" height="65" class="mobile-full display-change"
+                                                      src="{{usi_prod_pic_3}}"
+                                                      alt="" style="border-radius: 0px; font-size: 13px; width: 65px; height: 65px;
+                                                      font-family: Arial, Helvetica, sans-serif;" />
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <!--[if (gte mso 9)|(IE)]>
+        </td><td width="120px" valign="top">
+        <![endif]-->
+        <div class="column" style="max-width: 240px;">
+            <table width="100%">
+                <tr>
+                    <td style="padding: 5px;">
+                        <table class="contents" align="center">
+                            <tr>
+                                <td class="text" style="text-align: center; vertical-align: center; font-size: 13px;">
+                                    <p><b>{{usi_prod_name_3}}</b></p>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <!--[if (gte mso 9)|(IE)]>
+        </td><td width="120px" valign="top">
+        <![endif]-->
+        <div class="column" style="max-width: 50px;">
+            <table width="100%">
+                <tr>
+                    <td style="padding: 5px;">
+                        <table class="contents" align="center">
+                            <tr>
+                                <td class="text" style="text-align: center; vertical-align: center; font-size: 14px;">
+                                    <p class="bold-text">&nbsp;</p>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <!--[if (gte mso 9)|(IE)]>
+        </td><td width="120px" valign="top">
+        <![endif]-->
+        <div class="column">
+            <table width="100%">
+                <tr>
+                    <td style="padding: 5px;">
+                        <table class="contents" align="center">
+                            <tr>
+                                <td class="text" style="text-align: center; vertical-align: center; font-size: 13px;">
+                                    <p class="bold-text" style="float: right;">${{usi_prod_price_3}}</p>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <!--[if (gte mso 9)|(IE)]>
+        </td>
+        </tr>
+        </table>
+        <![endif]-->
+    </td>
+</tr>
+{{REQUIRE_STOP:usi_prod_name_3}}
+</div>
 <textarea id="cart_one_product_data" style="display: none;">
     <td class="four-column"  align="center">
         <!--[if (gte mso 9)|(IE)]>
@@ -634,22 +1161,17 @@
 
 		var frame = $('iframe'),
 			contents = frame.contents(),
-			body = contents.find('body'),
-			styleTag = contents.find('head').append('<style></style>').children('style');
+			body = contents.find('body');
 
 			$('textarea').focus(function() {
 				var $this = $(this);
-
+				// need to find an alternative to keyup event maybe change()
 				$this.keyup(function(){
-					if($this.attr('id') === 'html'){
+					if($this.attr('id') === 'rendered_html'){
 						body.html($this.val());
-					} else{
-						styleTag.text($this.val());
 					}
 				});
 			});
-
-
 	})();
 </script>
 </body>
