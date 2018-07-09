@@ -3,6 +3,7 @@ var counter = 0;
 
 //when hitting clear, rendered html becomes this
 var saved_html = document.getElementById("rendered_html").value;
+var three_product_cart_nodes = document.getElementById("cart_three_product_data").children[0].cloneNode(true);
 
 // element that contains the preview html
 var html_demo = document.getElementById("html_demo");
@@ -14,10 +15,17 @@ var rendered_html = document.getElementById("rendered_html");
 
 function startover (){ 
 	counter = 0;
-	var node_tree = document.getElementById("email_properties");                       
+	var node_tree = document.getElementById("email_properties");
 	html_demo.innerHTML = "";
 	node_tree.innerHTML = "";
 	rendered_html.value = saved_html;
+
+	if(document.getElementById("cart_three_product_data").children[0].children[0] == null){
+		for(var i=0;i<3;i++){
+			document.getElementById("cart_three_product_data").children[0].appendChild(three_product_cart_nodes.children[0]);
+		}
+		three_product_cart_nodes = document.getElementById("cart_three_product_data").children[0].cloneNode(true);
+	}
 }
 function addItem (email_property){
 
@@ -49,6 +57,12 @@ function addThreeProductCart (email_property){
 		//html_demo.innerHTML += "{{test}}";
 	}
 	
+	if(document.getElementById("cart_three_product_data").children[0].children[0] == null){
+		for(var i=0;i<3;i++){
+			document.getElementById("cart_three_product_data").children[0].appendChild(three_product_cart_nodes.children[0]);
+		}
+		three_product_cart_nodes = document.getElementById("cart_three_product_data").children[0].cloneNode(true);
+	}
 	// adds items to the layout tree
 	createLayoutTreeItem(email_property);
 }
@@ -91,9 +105,13 @@ function deleteDemoItem (node_index){
 		var email_node = document.querySelectorAll('.emailnode_'+node_index);
 		if(email_node.length !== 0 && email_node.length === 1){
 			email_node[0].parentNode.removeChild(email_node[0]);
-		}else if(email_node.length < 1){
+		}else if(email_node.length > 1){
 			for(var i=0;i<3;i++){
-				email_node[0].parentNode.removeChild(email_node[0]);
+				if(email_node[0] != null){
+					email_node[i].parentNode.removeChild(email_node[i]);
+				}else{
+					break;
+				}
 			}
 		}else{
 			console.log("Does not exist");
