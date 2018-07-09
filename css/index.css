@@ -5,24 +5,14 @@ body{
     font-family: "Trebuchet MS", sans-serif;
     margin: 50px;
 }
-.demoHeaders {
-    margin-top: 2em;
+
+#print_button {
+    background-color: #007fff;
+    color: #fff;
 }
-#dialog-link {
-    padding: .4em 1em .4em 20px;
-    text-decoration: none;
-    position: relative;
-}
-#dialog-link span.ui-icon {
-    margin: 0 5px 0 0;
-    position: absolute;
-    left: .2em;
-    top: 50%;
-    margin-top: -8px;
-}
-#icons {
-    margin: 0;
-    padding: 0;
+#output_title{
+    text-align: center;
+    display: none;
 }
 #icons li {
     margin: 2px;
@@ -35,9 +25,6 @@ body{
 #icons span.ui-icon {
     float: left;
     margin: 0 4px;
-}
-.fakewindowcontain .ui-widget-overlay {
-    position: absolute;
 }
 select {
     width: 200px;
@@ -52,6 +39,7 @@ select {
     font-size: 14px;
     margin: 1%;
     cursor: pointer;
+    width: 40%;
 }
 .hero_image {
     background-color: #4CAF50; /* Green */
@@ -89,6 +77,9 @@ select {
 .subtotal_cta{
     background-color: #616161; /* Light Green */
 }
+.cta_subtotal{
+    background-color: #616161; /* Light Green */
+}
 .centered_cta{
     background-color: #000; /* Light Green */
 }
@@ -116,7 +107,8 @@ select {
 .line_spacer,
 .centered_cta,
 .footer_image,
-.cart_three_product{
+.cart_three_product,
+.cta_subtotal{
     border: none;
     color: white;
     padding: 15px 32px;

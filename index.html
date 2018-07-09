@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Email Test</title>
-<!-- development version, includes helpful console warnings -->
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<title>Email Builder</title>
 
 <link href="css/index.css" rel="stylesheet">
 <link href="css/template.css" rel="stylesheet">
-<link href="css/codemirror.css" rel="stylesheet" >
 <link href="jquery/jquery-ui.css" rel="stylesheet">
 </head>
 <body>
@@ -16,7 +13,7 @@
 	<thead>
 		<tr>
 			<td><h3 class="demoHeaders"><center>Controls</center></h3></td>
-			<td><h3 class="demoHeaders"><center>Preview</center></h3></td>
+			<td><h3 class="demoHeaders"><center>Demo</center></h3></td>
 		</tr>
 	</thead>
 	<tbody>
@@ -34,6 +31,7 @@
 						</button>
 						<button class="ui-button ui-corner-all ui-widget controls_button" onclick="addItem('Copy Text')">Copy Text </button>
 						<button class="ui-button ui-corner-all ui-widget controls_button" onclick="addItem('Subtotal CTA')">Subtotal | CTA</button>
+						<button class="ui-button ui-corner-all ui-widget controls_button" onclick="addItem('CTA Subtotal')">CTA | Subtotal</button>
 						<button class="ui-button ui-corner-all ui-widget controls_button" onclick="addItem('Centered CTA')">Centered CTA</button>
 					</div>
 					<h3>Cart Layouts</h3>
@@ -41,7 +39,7 @@
 						<button class="ui-button ui-corner-all ui-widget controls_button" onclick="addItem('Cart Header Image');">Cart Header Image <span class="ui-icon ui-icon-image"></span>
 						</button>
 						<button class="ui-button ui-corner-all ui-widget controls_button" onclick="addItem('Cart One Product')">Cart: 1 Product <span class="ui-icon ui-icon-cart"></span></button>
-						<button class="ui-button ui-corner-all ui-widget controls_button" onclick="addThreeProductCart('Cart Three Product Demo')">Cart: 3 Product <span class="ui-icon ui-icon-cart"></span></button>
+						<button class="ui-button ui-corner-all ui-widget controls_button" onclick="addThreeProductCart('Cart Three Product')">Cart: 3 Product <span class="ui-icon ui-icon-cart"></span></button>
 					</div>
 					<h3>Footer Layouts</h3>
 					<div>
@@ -49,235 +47,239 @@
 						<button class="ui-button ui-corner-all ui-widget controls_button" onclick="addItem('Address')">Address</button>
 						<button class="ui-button ui-corner-all ui-widget controls_button" onclick="addItem('Footer Image')">Footer Image</button>
 					</div>
+					<h3>Spacers</h3>
+					<div>
+						<button class="ui-button ui-corner-all ui-widget controls_button" onclick="addItem('Spacer')">Spacer</button>
+						<button class="ui-button ui-corner-all ui-widget controls_button" onclick="addItem('Line Spacer')">Line Spacer</button>
+					</div>
 				</div>
-				<button class="ui-button ui-corner-all ui-widget controls_button" onclick="addItem('Spacer')">Spacer</button>
-				<button class="ui-button ui-corner-all ui-widget controls_button" onclick="addItem('Line Spacer')">Line Spacer</button>
 				<br><br>
 				<center style="font-size: 18px; font-family: Lato, sans-serif;">
-					<button class="controls_button" onclick="startover()">Clear <span class="ui-icon ui-icon-trash"></span></button>
-					<button class="controls_button" onclick="printHtml()">Print <span class="ui-icon ui-icon-print"></span></button>
+					<button class="ui-button ui-corner-all ui-widget controls_button" onclick="startover()">Clear <span class="ui-icon ui-icon-trash"></span></button>
+					<button id="print_button" class="ui-button ui-corner-all ui-widget controls_button" onclick="printHtml()">Print</button>
 					<h3>Layout Tree</h3>
 					<ul id="email_properties" style="padding: 10px;">
 					</ul>
 				</center>
 			</td>
-			<td style="border: 1px solid #000;">
-			<center>
-			<table id="html_demo" style="width: 100%; max-width: 600px; text-align: center;">
-			</table>
-			</center>
+			<td style="border: 1px solid #000; height: 700px; width: 800px; overflow: auto;">
+				<center>
+					<table id="html_demo" style="width: 100%; max-width: 600px; text-align: center;">
+					</table>
+				</center>
 			</td>
+		</tr>
+		<tr>
+			<td>
+				<h3 id="output_title">Output</h3>
+				<textarea id="rendered_html">
+				<html xmlns="http://www.w3.org/1999/xhtml">
+					<head>
+					    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+					    <!--[if !mso]><!-->
+					        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+					    <!--<![endif]-->
+					    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+					    <title></title>
+
+					    <style type="text/css">
+					        /* Basics */
+					        body {
+					            Margin: 0;
+					            padding: 0;
+					            min-width: 100%;
+					            max-width: 600px;
+					        }
+					        table {
+					            border-spacing: 0;
+
+					            font-family: sans-serif;
+					            color: #333333;
+					          }
+					        table table {
+					            table-layout: auto;
+					          }
+
+					        td {
+					            padding: 0;
+					        }
+					        img {
+					            border: 0;
+					        }
+					        .wrapper {
+					            width: 100%;
+					            table-layout: fixed;
+					            -webkit-text-size-adjust: 100%;
+					            -ms-text-size-adjust: 100%;
+					        }
+					        .webkit {
+					            max-width: 600px;
+					        }
+					        .outer {
+					            Margin: 0 auto;
+					            width: 100%;
+					            max-width: 600px;
+					        }
+					        .inner {
+					            padding: 20px;
+					        }
+					        .smaller-inner {
+					            padding: 10px;
+					        }
+					        .contents {
+					            width: 100%;
+					        }
+					        p {
+					            Margin: 0;
+					        }
+					        a {
+					            color: #000;
+					            text-decoration: underline
+					        }
+					        .h1 {
+					            font-size: 21px;
+					            font-weight: bold;
+					            margin-bottom: 18px;
+					        }
+					        .h2 {
+					            font-size: 18px;
+					            font-weight: bold;
+					            margin-bottom: 12px;
+					        }
+					        .full-width-image img {
+					            width: 100%;
+					            max-width: 600px;
+					            height: auto;
+					        }
+
+					        /* One column layout */
+					        .one-column .contents {
+					            text-align: left;
+					        }
+					        .one-column p {
+					            font-size: 14px;
+					            margin-bottom: 10px;
+					            margin-top: 10px;
+					        }
+
+					        /*Two column layout*/
+					        .two-column {
+					            text-align: center;
+					            font-size: 0;
+					            padding-bottom: 5px;
+					        }
+					        .two-column .column {
+					            width: 100%;
+					            max-width: 280px;
+					            display: inline-block;
+					            vertical-align: top;
+					        }
+					        .two-column .contents {
+					            font-size: 14px;
+					            text-align: left;
+					        }
+					        .two-column img {
+					            width: 100%;
+					            max-width: 280px;
+					            height: auto;
+					        }
+					        .two-column .text {
+					            padding-top: 10px;
+					        }
+
+					        /*Three column layout*/
+					        .three-column {
+					            text-align: center;
+					            font-size: 0;
+					            padding-top: 10px;
+					            padding-bottom: 10px;
+					        }
+					        .three-column .column {
+					            width: 100%;
+					            max-width: 200px;
+					            display: inline-block;
+					            vertical-align: top;
+					        }
+					        .three-column img {
+					            width: 100%;
+					            max-width: 180px;
+					            height: auto;
+					        }
+					        .three-column .contents {
+					            font-size: 14px;
+					            text-align: center;
+					        }
+					        .three-column .text {
+					            padding-top: 10px;
+					        }
+
+					        /*Four column layout*/
+					        .four-column {
+					            text-align: center;
+					            font-size: 0;
+					            padding-top: 10px;
+					            padding-bottom: 10px;
+					        }
+					        .four-column .column {
+					            width: 100%;
+					            max-width: 130px;
+					            display: inline-block;
+					            vertical-align: top;
+					        }
+					        .four-column img {
+					            width: 100%;
+					            max-width: 130px;
+					            height: auto;
+					        }
+					        .four-column .contents {
+					            font-size: 14px;
+					            text-align: center;
+					        }
+					        .four-column .text {
+					            padding-top: 10px;
+					        }
+					        .bold-text{
+					            font-weight: bold;
+					        }
+
+					        .display-change{
+					            display: block;
+					        }
+					        .border-image{
+					          border-top: 0px;
+					            border-bottom: 0px;
+					        }
+					    </style>
+
+					    <!--[if (gte mso 9)|(IE)]>
+					    <style type="text/css">
+					        table {border-collapse: collapse;}
+					    </style>
+					    <![endif]-->
+					</head>
+					<body width="600">
+					    <center class="wrapper" width="100%">
+					        <div class="webkit" max-width="600px" border="0" align="center" cellpadding="0" cellspacing="0">
+					            <!--[if (gte mso 9)|(IE)]>
+					            <table width="600" align="center">
+					            <tr>
+					            <td>
+					            <![endif]-->
+					            <table class="outer header" align="center" style="max-width: 600px; background-color: #fff;">
+				</textarea>
+			</td>
+			<!--
+			<td>
+				<h3>Test</h3>
+				<div class="output grid">
+					<iframe width="800" style="width: 700px; height: 700px;"></iframe>
+				</div>
+			</td>
+			-->
 		</tr>
 	</tbody>
 </table>
-<div>
-<h3>Test</h3>
-<div class="container grid">
-	<form>
-		<h2>HTML</h2>
-		<textarea id="html"></textarea>
-		<textarea id="css" style="display: none;"></textarea>
-	</form>
-</div>
-<div class="output grid">
-	<iframe width="800" style="width: 800px; height: 1000px;"></iframe>
-</div>
-</div>
-<textarea id="rendered_html">
-<html xmlns="http://www.w3.org/1999/xhtml">
-	<head>
-	    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	    <!--[if !mso]><!-->
-	        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	    <!--<![endif]-->
-	    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	    <title></title>
 
-	    <style type="text/css">
-	        /* Basics */
-	        body {
-	            Margin: 0;
-	            padding: 0;
-	            min-width: 100%;
-	            max-width: 600px;
-	        }
-	        table {
-	            border-spacing: 0;
-
-	            font-family: sans-serif;
-	            color: #333333;
-	          }
-	        table table {
-	            table-layout: auto;
-	          }
-
-	        td {
-	            padding: 0;
-	        }
-	        img {
-	            border: 0;
-	        }
-	        .wrapper {
-	            width: 100%;
-	            table-layout: fixed;
-	            -webkit-text-size-adjust: 100%;
-	            -ms-text-size-adjust: 100%;
-	        }
-	        .webkit {
-	            max-width: 600px;
-	        }
-	        .outer {
-	            Margin: 0 auto;
-	            width: 100%;
-	            max-width: 600px;
-	        }
-	        .inner {
-	            padding: 20px;
-	        }
-	        .smaller-inner {
-	            padding: 10px;
-	        }
-	        .contents {
-	            width: 100%;
-	        }
-	        p {
-	            Margin: 0;
-	        }
-	        a {
-	            color: #000;
-	            text-decoration: underline
-	        }
-	        .h1 {
-	            font-size: 21px;
-	            font-weight: bold;
-	            margin-bottom: 18px;
-	        }
-	        .h2 {
-	            font-size: 18px;
-	            font-weight: bold;
-	            margin-bottom: 12px;
-	        }
-	        .full-width-image img {
-	            width: 100%;
-	            max-width: 600px;
-	            height: auto;
-	        }
-
-	        /* One column layout */
-	        .one-column .contents {
-	            text-align: left;
-	        }
-	        .one-column p {
-	            font-size: 14px;
-	            margin-bottom: 10px;
-	            margin-top: 10px;
-	        }
-
-	        /*Two column layout*/
-	        .two-column {
-	            text-align: center;
-	            font-size: 0;
-	            padding-bottom: 5px;
-	        }
-	        .two-column .column {
-	            width: 100%;
-	            max-width: 280px;
-	            display: inline-block;
-	            vertical-align: top;
-	        }
-	        .two-column .contents {
-	            font-size: 14px;
-	            text-align: left;
-	        }
-	        .two-column img {
-	            width: 100%;
-	            max-width: 280px;
-	            height: auto;
-	        }
-	        .two-column .text {
-	            padding-top: 10px;
-	        }
-
-	        /*Three column layout*/
-	        .three-column {
-	            text-align: center;
-	            font-size: 0;
-	            padding-top: 10px;
-	            padding-bottom: 10px;
-	        }
-	        .three-column .column {
-	            width: 100%;
-	            max-width: 200px;
-	            display: inline-block;
-	            vertical-align: top;
-	        }
-	        .three-column img {
-	            width: 100%;
-	            max-width: 180px;
-	            height: auto;
-	        }
-	        .three-column .contents {
-	            font-size: 14px;
-	            text-align: center;
-	        }
-	        .three-column .text {
-	            padding-top: 10px;
-	        }
-
-	        /*Four column layout*/
-	        .four-column {
-	            text-align: center;
-	            font-size: 0;
-	            padding-top: 10px;
-	            padding-bottom: 10px;
-	        }
-	        .four-column .column {
-	            width: 100%;
-	            max-width: 130px;
-	            display: inline-block;
-	            vertical-align: top;
-	        }
-	        .four-column img {
-	            width: 100%;
-	            max-width: 130px;
-	            height: auto;
-	        }
-	        .four-column .contents {
-	            font-size: 14px;
-	            text-align: center;
-	        }
-	        .four-column .text {
-	            padding-top: 10px;
-	        }
-	        .bold-text{
-	            font-weight: bold;
-	        }
-
-	        .display-change{
-	            display: block;
-	        }
-	        .border-image{
-	          border-top: 0px;
-	            border-bottom: 0px;
-	        }
-	    </style>
-
-	    <!--[if (gte mso 9)|(IE)]>
-	    <style type="text/css">
-	        table {border-collapse: collapse;}
-	    </style>
-	    <![endif]-->
-	</head>
-	<body width="600">
-	    <center class="wrapper" width="100%">
-	        <div class="webkit" max-width="600px" border="0" align="center" cellpadding="0" cellspacing="0">
-	            <!--[if (gte mso 9)|(IE)]>
-	            <table width="600" align="center">
-	            <tr>
-	            <td>
-	            <![endif]-->
-	            <table class="outer header" align="center" style="max-width: 600px; background-color: #fff;">
-</textarea>
 <textarea id="hero_image_data" style="display:none">
     <td class="one-column">
     <a href="{{LINK1}}" target="_blank" alt="">
@@ -396,6 +398,64 @@
         </table>
     </td>
 </textarea> 
+<textarea id="cta_subtotal_data" style="display: none;">
+    <td class="two-column" align="center">
+        <!--[if (gte mso 9)|(IE)]>
+        <table width="100%">
+        <tr>
+        <td width="50%" valign="top">
+        <![endif]-->
+        <div class="column">
+            <table width="100%">
+                <tr>
+                    <td style="padding-left:5px">
+                        <table class="contents" align="center">
+
+                            <tr>
+                              <td style="text-align: center;" class="inner">
+                              <br><br>
+                                  <a href="{{LINK1}}" target="_blank" alt=""><img data-ko-editable="leftImage.src"
+                                                    hspace="0" align="center" border="0" vspace="0" width="210" height="36"
+                                                    src="http://via.placeholder.com/210x36?text=CTA"
+                                                    alt="" style="border-radius: 0px; max-width: 210px; width: 210px; height: auto;font-size: 13px;
+                                                    font-family: Arial, Helvetica, sans-serif;" /></a><br>
+                              </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <!--[if (gte mso 9)|(IE)]>
+        </td><td width="50%" valign="top">
+        <![endif]-->
+        <div class="column">
+            <table width="100%">
+                <tr>
+                    <td class="inner">
+                        <table class="contents" align="center">
+                            <tr>
+                              <td style="text-align: center;">
+                                    <p style="font-size: 13px;"><span style="float: left"><b>Subtotal</b></span><span style="float: right; color: #000;"><b>${{usi_subtotal}}</b></span></p>
+<br><br>              
+                                    <p style="font-size: 13px;"><span style="float: left"><b>Discount</b></span><span style="float: right; color: #000;"><b>-${{usi_discount}}</b></span></p>
+<br><br> 
+                                    <p style="font-size: 13px;"><span style="float: left"><b>New Subtotal</b></span><span style="float: right; color: #b03432;"><b>${{usi_newsubtotal}}</b></span></p>
+<br><br>             
+                              </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <!--[if (gte mso 9)|(IE)]>
+        </td>
+        </tr>
+        </table>
+        <![endif]-->
+    </td>
+</textarea>
 <textarea id="subtotal_cta_data" style="display: none;">
     <td class="two-column" align="center">
         <!--[if (gte mso 9)|(IE)]>
@@ -486,7 +546,7 @@
                             <tr>
                                 <td class="text" align="center">
                                     <img data-ko-editable="leftImage.src"
-                                                      hspace="0" align="center" border="0" vspace="0" width="65" height="65" class="mobile-full display-change"
+                                                      hspace="0" align="center" border="0" vspace="0" width="65" height="65" class="display-change"
                                                       src="{{usi_prod_pic_1}}"
                                                       alt="" style="border-radius: 0px; font-size: 13px; width: 65px; height: 65px;
                                                       font-family: Arial, Helvetica, sans-serif;" />
@@ -558,7 +618,6 @@
         <![endif]-->
     </td>
 </tr>
-{{REQUIRE_START:usi_prod_name_2}}
 <tr>
     <td class="four-column"  align="center">
         <!--[if (gte mso 9)|(IE)]>
@@ -574,7 +633,7 @@
                             <tr>
                                 <td class="text" align="center">
                                     <img data-ko-editable="leftImage.src"
-                                                      hspace="0" align="center" border="0" vspace="0" width="65" height="65" class="mobile-full display-change"
+                                                      hspace="0" align="center" border="0" vspace="0" width="65" height="65" class="display-change"
                                                       src="{{usi_prod_pic_2}}"
                                                       alt="" style="border-radius: 0px; font-size: 13px; width: 65px; height: 65px;
                                                       font-family: Arial, Helvetica, sans-serif;" />
@@ -646,8 +705,6 @@
         <![endif]-->
     </td>
 </tr>
-{{REQUIRE_STOP:usi_prod_name_2}}
-{{REQUIRE_START:usi_prod_name_3}}
 <tr>
     <td class="four-column"  align="center">
         <!--[if (gte mso 9)|(IE)]>
@@ -663,7 +720,7 @@
                             <tr>
                                 <td class="text" align="center">
                                     <img data-ko-editable="leftImage.src"
-                                                      hspace="0" align="center" border="0" vspace="0" width="65" height="65" class="mobile-full display-change"
+                                                      hspace="0" align="center" border="0" vspace="0" width="65" height="65" class="display-change"
                                                       src="{{usi_prod_pic_3}}"
                                                       alt="" style="border-radius: 0px; font-size: 13px; width: 65px; height: 65px;
                                                       font-family: Arial, Helvetica, sans-serif;" />
@@ -735,7 +792,6 @@
         <![endif]-->
     </td>
 </tr>
-{{REQUIRE_STOP:usi_prod_name_3}}
 </table>
 <textarea id="cart_one_product_data" style="display: none;">
     <td class="four-column"  align="center">
@@ -752,7 +808,7 @@
                             <tr>
                                 <td class="text" align="center">
 									<img data-ko-editable="leftImage.src"
-                                                      hspace="0" align="center" border="0" vspace="0" width="65" height="65" class="mobile-full display-change"
+                                                      hspace="0" align="center" border="0" vspace="0" width="65" height="65" class="display-change"
                                                       src="{{usi_prod_name_1}}"
                                                       alt="" style="border-radius: 0px; font-size: 13px; width: 65px; height: 65px;
                                                       font-family: Arial, Helvetica, sans-serif;" />
@@ -773,8 +829,7 @@
                         <table class="contents" align="center">
                             <tr>
                                 <td class="text" style="text-align: center; vertical-align: center; font-size: 13px;">
-                                    <p><a href="https://trackr.sjv.io/c/16669/457936/8165?u={{usi_prod_link_3}}" target="_blank" alt="" style="text-decoration:none;"><u><b>{{usi_prod_name_1}}</b></u></a></p>
-
+                                    <p><b>{{usi_prod_name_1}}</b></p>
                                 </td>
                             </tr>
                         </table>
@@ -890,7 +945,7 @@
 <script src="jquery/external/jquery/jquery.js"></script>
 <script src="jquery/jquery-ui.js"></script>
 <script type="text/javascript">
-	$( "#accordion" ).accordion();
+	$("#accordion").accordion();
 </script>
 <script src="jquery/jquery-3.3.1.min.js"></script>
 <script>
