@@ -39,15 +39,16 @@ function addThreeProductCart (email_property){
 
 	//counter is for testing purposes
 	var prop = toSnakeCase(email_property);
-	var text_area_data = document.getElementById(prop + "_data").value;
-	//var wrapper = document.createElement("tr"); 
+	var cart_product = document.getElementById("cart_three_product_data").children[0];
 
 	counter++;
-	//wrapper.innerHTML = text_area_data;    
-	//wrapper.appendChild(wrapper.innerHTML);
-	//wrapper.className = "emailnode_" + counter.toString();                             
-	html_demo.appendChild(text_area_data);
 
+	for(var i=0;i<3;i++){
+		cart_product.children[0].className = "emailnode_" + counter;
+		html_demo.appendChild(cart_product.children[0]);
+		//html_demo.innerHTML += "{{test}}";
+	}
+	
 	// adds items to the layout tree
 	createLayoutTreeItem(email_property);
 }
@@ -88,8 +89,12 @@ function deleteTreeItem (node){
 function deleteDemoItem (node_index){
 	if(!isNaN(node_index)){
 		var email_node = document.querySelectorAll('.emailnode_'+node_index);
-		if(email_node.length !== 0){
+		if(email_node.length !== 0 && email_node.length === 1){
 			email_node[0].parentNode.removeChild(email_node[0]);
+		}else if(email_node.length < 1){
+			for(var i=0;i<3;i++){
+				email_node[0].parentNode.removeChild(email_node[0]);
+			}
 		}else{
 			console.log("Does not exist");
 		}
