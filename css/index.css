@@ -128,5 +128,5 @@ select {
 #rendered_html{
     width: 100%;
     display: none;
-    min-height: 200px;
+    min-height: 400px;
 }

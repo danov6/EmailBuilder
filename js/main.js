@@ -119,11 +119,13 @@ function printHtml (){
 	var content = html_demo.innerHTML;
 	var footer = closer_data.value;
 
-	document.getElementById("outout_title").style.display = "block";
+	document.getElementById("output_title").style.display = "block";
 
 	//first clear contents
 	rendered_html.value = saved_html;
 	rendered_html.value += content;
 	rendered_html.value += footer;
 	rendered_html.style.display = "block";
+
+	window.location.hash = "rendered_html";
 }
