@@ -71,6 +71,12 @@ select {
 .hello_image{
     background-color: #005604; /* Dark Green */
 }
+.hello_copy_border{
+    background-color: #005604; /* Dark Green */
+}
+.copy_text_border{
+    background-color: #005604; /* Dark Green */
+}
 .cart_header_image{
     background-color: #68f56f; /* Light Green */
 }
@@ -108,7 +114,9 @@ select {
 .centered_cta,
 .footer_image,
 .cart_three_product,
-.cta_subtotal{
+.cta_subtotal,
+.hello_copy_border,
+.copy_text_border{
     border: none;
     color: white;
     padding: 15px 32px;

@@ -19,40 +19,80 @@
 	<tbody>
 		<tr>
 			<td style="vertical-align: top; width: 45%; text-align: center;">
-				<div id="accordion">
-					<h3>Image Layouts</h3>
-					<div>
-						<button class="ui-button ui-corner-all ui-widget controls_button" onclick="addItem('Hero Image');">Hero Image 
-						<span class="ui-icon ui-icon-image"></span></button>
-					</div>
-					<h3>Copy Layouts</h3>
-					<div>
-						<button class="ui-button ui-corner-all ui-widget controls_button" onclick="addItem('Hello Image');">"Hello" Copy Image <span class="ui-icon ui-icon-image"></span> 
-						</button>
-						<button class="ui-button ui-corner-all ui-widget controls_button" onclick="addItem('Copy Text')">Copy Text </button>
-						<button class="ui-button ui-corner-all ui-widget controls_button" onclick="addItem('Subtotal CTA')">Subtotal | CTA</button>
-						<button class="ui-button ui-corner-all ui-widget controls_button" onclick="addItem('CTA Subtotal')">CTA | Subtotal</button>
-						<button class="ui-button ui-corner-all ui-widget controls_button" onclick="addItem('Centered CTA')">Centered CTA</button>
-					</div>
-					<h3>Cart Layouts</h3>
-					<div>
-						<button class="ui-button ui-corner-all ui-widget controls_button" onclick="addItem('Cart Header Image');">Cart Header Image <span class="ui-icon ui-icon-image"></span>
-						</button>
-						<button class="ui-button ui-corner-all ui-widget controls_button" onclick="addItem('Cart One Product')">Cart: 1 Product <span class="ui-icon ui-icon-cart"></span></button>
-						<button class="ui-button ui-corner-all ui-widget controls_button" onclick="addThreeProductCart('Cart Three Product')">Cart: 3 Product <span class="ui-icon ui-icon-cart"></span></button>
-					</div>
-					<h3>Footer Layouts</h3>
-					<div>
-						<button class="ui-button ui-corner-all ui-widget controls_button" onclick="addItem('Social Icons')">Social Icons</button>
-						<button class="ui-button ui-corner-all ui-widget controls_button" onclick="addItem('Address')">Address</button>
-						<button class="ui-button ui-corner-all ui-widget controls_button" onclick="addItem('Footer Image')">Footer Image</button>
-					</div>
-					<h3>Spacers</h3>
-					<div>
-						<button class="ui-button ui-corner-all ui-widget controls_button" onclick="addItem('Spacer')">Spacer</button>
-						<button class="ui-button ui-corner-all ui-widget controls_button" onclick="addItem('Line Spacer')">Line Spacer</button>
+			<div id="tabs">
+				<ul>
+					<li><a href="#tabs-1">Regular</a></li>
+					<li><a href="#tabs-2">Borders</a></li>
+				</ul>
+				<div id="tabs-1">
+					<div id="accordion">
+						<h3>Image Layouts</h3>
+						<div>
+							<button class="ui-button ui-corner-all ui-widget controls_button" onclick="addItem('Hero Image');">Hero Image 
+							<span class="ui-icon ui-icon-image"></span></button>
+						</div>
+						<h3>Copy Layouts</h3>
+						<div>
+							<button class="ui-button ui-corner-all ui-widget controls_button" onclick="addItem('Hello Image');">"Hello" Copy Image <span class="ui-icon ui-icon-image"></span> 
+							</button>
+							<button class="ui-button ui-corner-all ui-widget controls_button" onclick="addItem('Copy Text')">Copy Text </button>
+							<button class="ui-button ui-corner-all ui-widget controls_button" onclick="addItem('Subtotal CTA')">Subtotal | CTA</button>
+							<button class="ui-button ui-corner-all ui-widget controls_button" onclick="addItem('CTA Subtotal')">CTA | Subtotal</button>
+							<button class="ui-button ui-corner-all ui-widget controls_button" onclick="addItem('Centered CTA')">Centered CTA</button>
+						</div>
+						<h3>Cart Layouts</h3>
+						<div>
+							<button class="ui-button ui-corner-all ui-widget controls_button" onclick="addItem('Cart Header Image');">Cart Header Image <span class="ui-icon ui-icon-image"></span>
+							</button>
+							<button class="ui-button ui-corner-all ui-widget controls_button" onclick="addItem('Cart One Product')">Cart: 1 Product <span class="ui-icon ui-icon-cart"></span></button>
+							<button class="ui-button ui-corner-all ui-widget controls_button" onclick="addThreeProductCart('Cart Three Product')">Cart: 3 Product <span class="ui-icon ui-icon-cart"></span></button>
+						</div>
+						<h3>Footer Layouts</h3>
+						<div>
+							<button class="ui-button ui-corner-all ui-widget controls_button" onclick="addItem('Social Icons')">Social Icons</button>
+							<button class="ui-button ui-corner-all ui-widget controls_button" onclick="addItem('Address')">Address</button>
+							<button class="ui-button ui-corner-all ui-widget controls_button" onclick="addItem('Footer Image')">Footer Image</button>
+						</div>
+						<h3>Spacers</h3>
+						<div>
+							<button class="ui-button ui-corner-all ui-widget controls_button" onclick="addItem('Spacer')">Spacer</button>
+							<button class="ui-button ui-corner-all ui-widget controls_button" onclick="addItem('Line Spacer')">Line Spacer</button>
+						</div>
 					</div>
 				</div>
+				<div id="tabs-2">
+					<div id="accordion_border">
+						<h3>Copy Layouts</h3>
+						<div>
+							<button class="ui-button ui-corner-all ui-widget controls_button" onclick="addItem('Hello Copy Border');">"Hello" Copy Text (B)<span class="ui-icon ui-icon-image"></span> 
+							</button>
+							<button class="ui-button ui-corner-all ui-widget controls_button" onclick="addItem('Copy Text Border')">Copy Text (B)</button>
+							<button class="ui-button ui-corner-all ui-widget controls_button" onclick="addItem('Subtotal CTA')">Subtotal | CTA</button>
+							<button class="ui-button ui-corner-all ui-widget controls_button" onclick="addItem('CTA Subtotal')">CTA | Subtotal</button>
+							<button class="ui-button ui-corner-all ui-widget controls_button" onclick="addItem('Centered CTA')">Centered CTA</button>
+						</div>
+						<h3>Cart Layouts</h3>
+						<div>
+							<button class="ui-button ui-corner-all ui-widget controls_button" onclick="addItem('Cart Header Image');">Cart Header Image <span class="ui-icon ui-icon-image"></span>
+							</button>
+							<button class="ui-button ui-corner-all ui-widget controls_button" onclick="addItem('Cart One Product')">Cart: 1 Product <span class="ui-icon ui-icon-cart"></span></button>
+							<button class="ui-button ui-corner-all ui-widget controls_button" onclick="addThreeProductCart('Cart Three Product')">Cart: 3 Product <span class="ui-icon ui-icon-cart"></span></button>
+						</div>
+						<h3>Footer Layouts</h3>
+						<div>
+							<button class="ui-button ui-corner-all ui-widget controls_button" onclick="addItem('Social Icons')">Social Icons</button>
+							<button class="ui-button ui-corner-all ui-widget controls_button" onclick="addItem('Address')">Address</button>
+							<button class="ui-button ui-corner-all ui-widget controls_button" onclick="addItem('Footer Image')">Footer Image</button>
+						</div>
+						<h3>Spacers</h3>
+						<div>
+							<button class="ui-button ui-corner-all ui-widget controls_button" onclick="addItem('Spacer')">Spacer</button>
+							<button class="ui-button ui-corner-all ui-widget controls_button" onclick="addItem('Line Spacer')">Line Spacer</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
 				<br><br>
 				<center style="font-size: 18px; font-family: Lato, sans-serif;">
 					<button class="ui-button ui-corner-all ui-widget controls_button" onclick="startover()">Clear <span class="ui-icon ui-icon-trash"></span></button>
@@ -307,13 +347,13 @@
                                                       src="http://via.placeholder.com/600x35?text=Cart+Header"
                                                       alt="" style="display: inline-block; border-radius: 0px; width: 600px; height: auto;font-size: 35px;
                                                       font-family: Arial, Helvetica, sans-serif;" />
-           </td>
+           	</td>
             </tr>
         </table>
     </td>
 </textarea>
 <textarea id="spacer_data" style="display: none;">
-    <td class="one-column" bgcolor="#fff" style="background-color: #fff">
+    <td class="one-column" bgcolor="#fff" style="background-color: #f5f5f5">
         <table width="100%">
             <tr>
                 <td>
@@ -378,6 +418,38 @@
                                                       font-family: Arial, Helvetica, sans-serif;" />
            </td>
             </tr>
+        </table>
+    </td>
+</textarea>
+<textarea id="hello_copy_border_data" style="display: none;">
+    <td class="one-column">
+        <table width="100%">
+            <tbody>
+                <tr>
+                    <td class="inner contents" bgcolor="#fff" style="background-color: #fff;  border-left: 30px solid #f5f5f5; border-right: 30px solid #f5f5f5; padding-bottom: 0px;">
+                        <p style="font-size: 30px">Hi there,</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </td>
+</textarea>
+<textarea id="copy_text_border_data" style="display: none;">
+    <td class="one-column">
+        <table width="100%">
+            <tbody>
+                <tr>
+                    <td class="inner contents" style=" border-left: 30px solid #f5f5f5; border-right: 30px solid #f5f5f5; padding-bottom: 0px;">
+                        <p style="font-size: 15px">Ready for some great gear? Get 15% off with a Sports Crate purchase today. Just head back to our site to <a href="{{LINK1}}" target="_blank" alt="" style="text-decoration:none;"><u>redeem this offer</u></a> when you pick your favorite team.</p>
+                        <br>
+                        <p style="font-size: 15px">Don't wait! Visit our site today and complete a purchase to redeem this <a href="{{LINK1}}" target="_blank" alt="" style="text-decoration:none;"><u>special offer</u></a>. All you have to do is use code SPORTS15 when completing your purchase.</p>
+                        <br>
+                        <p style="font-size: 15px">Sincerely,</p>
+                        <p style="font-size: 15px"><b>Team Sports Crate</b></p>
+                      <br>
+                    </td>
+                </tr>
+            </tbody>
         </table>
     </td>
 </textarea>
@@ -946,6 +1018,8 @@
 <script src="jquery/jquery-ui.js"></script>
 <script type="text/javascript">
 	$("#accordion").accordion();
+	$("#accordion_border").accordion();
+	$( "#tabs" ).tabs();
 </script>
 <script src="jquery/jquery-3.3.1.min.js"></script>
 <script>
