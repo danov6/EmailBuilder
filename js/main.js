@@ -65,7 +65,7 @@ function createLayoutTreeItem (email_property){
 
 	email_property = toSnakeCase(email_property);
 
-	list_item.className = email_property + " emailtree_" + counter.toString();
+	list_item.className = email_property + " emailtreeblock emailtree_" + counter.toString();
 	list_item.appendChild(list_text_node);
 	list_item.appendChild(delete_node);
 	document.getElementById("email_properties").appendChild(list_item);

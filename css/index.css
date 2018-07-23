@@ -5,7 +5,9 @@ body{
     font-family: "Trebuchet MS", sans-serif;
     margin: 50px;
 }
-
+select {
+    width: 200px;
+}
 #print_button {
     background-color: #007fff;
     color: #fff;
@@ -26,8 +28,10 @@ body{
     float: left;
     margin: 0 4px;
 }
-select {
-    width: 200px;
+#rendered_html{
+    width: 100%;
+    display: none;
+    min-height: 400px;
 }
 .title_name{
     font-family: Lato, sans-serif;
@@ -39,7 +43,7 @@ select {
     font-size: 14px;
     margin: 1%;
     cursor: pointer;
-    width: 45%;
+    width: 48%;
 }
 .hero_image {
     background-color: #4CAF50; /* Green */
@@ -86,7 +90,8 @@ select {
 .cta_subtotal{
     background-color: #616161; /* Light Green */
 }
-.centered_cta{
+.centered_cta,
+.centered_cta_border{
     background-color: #000; /* Light Green */
 }
 .line_spacer{
@@ -100,23 +105,7 @@ select {
     color: #000 !important;
     border: 1px solid #000;
 }
-.hero_image,
-.footer,
-.spacer,
-.copy_text,
-.social_icons,
-.address,
-.cart_one_product,
-.hello_image,
-.cart_header_image,
-.subtotal_cta,
-.line_spacer,
-.centered_cta,
-.footer_image,
-.cart_three_product,
-.cta_subtotal,
-.hello_copy_border,
-.copy_text_border{
+.emailtreeblock{
     border: none;
     color: white;
     padding: 15px 32px;
@@ -131,10 +120,4 @@ select {
     border: none;
     cursor: pointer;
     border-radius: 10%;
-}
-
-#rendered_html{
-    width: 100%;
-    display: none;
-    min-height: 400px;
 }
